@@ -1,0 +1,2 @@
+Copyright (c) 2026 KAABIL project owner.
+All rights reserved. Third-party libraries remain subject to their respective licenses.

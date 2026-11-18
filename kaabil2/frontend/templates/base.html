@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}KAABIL — Career clarity starts here{% endblock %}</title>
+  <meta name="description" content="Build skills, discover career paths and become career-ready with KAABIL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-3">
+ <div class="container">
+  <a class="navbar-brand brand" href="{% url 'home' %}"><span class="brand-mark">K</span> KAABIL</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="nav">
+   <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+    <li><a class="nav-link" href="{% url 'home' %}#features">Features</a></li>
+    {% if user.is_authenticated %}
+      <li><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+      <li><a class="btn btn-primary px-4" href="{% url 'dashboard' %}">Open workspace</a></li>
+      <li><form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="btn btn-link nav-link">Log out</button></form></li>
+    {% else %}
+      <li><a class="nav-link" href="{% url 'login' %}">Log in</a></li>
+      <li><a class="btn btn-primary px-4" href="{% url 'signup' %}">Get started <span aria-hidden="true">→</span></a></li>
+    {% endif %}
+   </ul>
+  </div>
+ </div>
+</nav>
+{% if messages %}<div class="container mt-3">{% for message in messages %}<div class="alert alert-info">{{ message }}</div>{% endfor %}</div>{% endif %}
+{% block content %}{% endblock %}
+<footer class="footer mt-5"><div class="container py-4 d-flex flex-wrap justify-content-between gap-2"><span class="brand">KAABIL</span><span class="small text-muted">Career clarity, one step at a time.</span><span class="small text-muted">© {% now "Y" %} KAABIL</span></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% block scripts %}{% endblock %}
+</body></html>

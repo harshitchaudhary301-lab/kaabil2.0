@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}KAABIL — Discover your skills. Define your career.{% endblock %}
+{% block content %}
+<section class="hero-section">
+ <div class="container py-5 py-lg-6"><div class="row align-items-center g-5">
+  <div class="col-lg-6">
+   <div class="eyebrow"><span class="pulse-dot"></span> YOUR CAREER, WITH MORE CLARITY</div>
+   <h1 class="hero-title mt-4">Discover your skills.<br><span class="gradient-text">Define your career.</span></h1>
+   <p class="hero-copy mt-4">Turn what you know into a clear next step. Explore career paths, understand your skill gaps and build a learning plan that moves you forward.</p>
+   <div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-primary btn-lg px-4" href="{% url 'signup' %}">Get started <span>→</span></a><a class="btn btn-light btn-lg px-4 border" href="#how-it-works">See how it works</a></div>
+   <div class="hero-proof mt-4"><span>✓ Skill-based guidance</span><span>✓ Actionable learning plans</span></div>
+  </div>
+  <div class="col-lg-6">
+   <div class="preview-wrap"><div class="preview-glow"></div><div class="preview-card">
+    <div class="d-flex justify-content-between align-items-center"><div><div class="small text-muted">YOUR CAREER SNAPSHOT</div><h5 class="mb-0 mt-1">Good morning, learner</h5></div><span class="avatar">S</span></div>
+    <div class="row g-3 mt-3"><div class="col-6"><div class="mini-stat"><span class="small text-muted">Career readiness</span><div class="d-flex align-items-end gap-2"><strong>76%</strong><span class="small text-success">+8%</span></div><div class="progress mt-2"><div class="progress-bar" style="width:76%"></div></div></div></div><div class="col-6"><div class="mini-stat"><span class="small text-muted">Skills developing</span><strong>08</strong><span class="small text-muted">Keep building momentum</span></div></div></div>
+    <div class="mt-4"><div class="d-flex justify-content-between mb-2"><strong class="small">Recommended career</strong><span class="tag-blue">Good match</span></div><div class="career-preview"><div class="career-icon">✦</div><div class="flex-grow-1"><strong>Data Analyst</strong><div class="small text-muted">Based on your skill profile</div></div><strong class="text-primary">82%</strong></div></div>
+    <div class="mt-4"><div class="d-flex justify-content-between"><strong class="small">Your next steps</strong><span class="small text-muted">This week</span></div><div class="task-line mt-3"><span class="check">✓</span><span>Practice SQL fundamentals</span><span class="ms-auto small text-muted">20 min</span></div><div class="task-line"><span class="check empty"></span><span>Build a mini data project</span><span class="ms-auto small text-muted">45 min</span></div></div>
+   </div><div class="float-note"><span class="note-icon">✧</span><div><strong>Small steps add up</strong><div class="small text-muted">A plan made around your goals</div></div></div></div>
+  </div>
+ </div></div>
+</section>
+<section id="features" class="section-pad"><div class="container"><div class="section-heading text-center"><div class="eyebrow">ONE PLATFORM, CLEARER DIRECTION</div><h2>Everything you need to move forward</h2><p>From understanding your strengths to taking your next step, keep your career journey in one place.</p></div>
+ <div class="row g-4 mt-3">
+ {% for icon,title,desc,color in feature_list %}{% endfor %}
+ <div class="col-md-6 col-lg-4"><div class="feature-card"><div class="feature-icon blue">◎</div><h5>Career matching</h5><p>Explore roles that align with your current skills and interests.</p></div></div>
+ <div class="col-md-6 col-lg-4"><div class="feature-card"><div class="feature-icon teal">⌁</div><h5>Skill gap insights</h5><p>See the skills a role needs and where you can improve next.</p></div></div>
+ <div class="col-md-6 col-lg-4"><div class="feature-card"><div class="feature-icon violet">✧</div><h5>Personal learning plan</h5><p>Turn your skill gaps into practical, manageable weekly tasks.</p></div></div>
+ <div class="col-md-6 col-lg-4"><div class="feature-card"><div class="feature-icon amber">✓</div><h5>Daily practice</h5><p>Build confidence with short quizzes and skill-based practice.</p></div></div>
+ <div class="col-md-6 col-lg-4"><div class="feature-card"><div class="feature-icon pink">▤</div><h5>Resume feedback</h5><p>Review keywords and key sections with transparent feedback.</p></div></div>
+ <div class="col-md-6 col-lg-4"><div class="feature-card"><div class="feature-icon blue">↗</div><h5>Job discovery</h5><p>Explore opportunities and compare them with your skill profile.</p></div></div>
+ </div></div></section>
+<section id="how-it-works" class="how-section section-pad"><div class="container"><div class="section-heading text-center"><div class="eyebrow">A SIMPLE WAY FORWARD</div><h2>From confusion to a clear next step</h2><p>Build a picture of where you are, then make progress one step at a time.</p></div><div class="row g-4 mt-3">
+ <div class="col-md-4"><div class="step-card"><span>01</span><h5>Understand your skills</h5><p>Build your profile and record your current skill levels.</p></div></div>
+ <div class="col-md-4"><div class="step-card"><span>02</span><h5>Find your direction</h5><p>Compare your skills with career roles and spot opportunities to grow.</p></div></div>
+ <div class="col-md-4"><div class="step-card"><span>03</span><h5>Take action</h5><p>Follow your learning plan, practice and track your progress.</p></div></div>
+ </div><div class="cta-band mt-5"><div><h3>Ready to make your next move?</h3><p class="mb-0">Start with your skills. Build towards your goals.</p></div><a href="{% url 'signup' %}" class="btn btn-light btn-lg">Create your free account →</a></div></div></section>
+{% endblock %}
